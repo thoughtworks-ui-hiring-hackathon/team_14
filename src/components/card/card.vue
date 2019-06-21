@@ -1,6 +1,8 @@
 <template>
   <div class="movie">
-    <div class="movie-img"></div>
+    <div class="movie-img">
+      <img :src="imgSrc">
+    </div>
     <div class="movie-details">
       <div class="row">
         <div class="col-md-6">
@@ -33,8 +35,6 @@ export default class Card extends Vue {
   @Prop({ default: '' })
   public genres!: string;
 
-
-
 }
 </script>
 
@@ -45,6 +45,7 @@ export default class Card extends Vue {
   border: 1px solid lightgray;
   margin-top:100px;
   float: left;
+  margin-right: 50px;
 }
 .movie-img{
   height: 50%;
@@ -64,5 +65,10 @@ export default class Card extends Vue {
 .movie-category span{
   color: grey;
   font-size: 12px;
+}
+.movie-img img {
+  width: 100%;
+  height: 100%;
+
 }
 </style>

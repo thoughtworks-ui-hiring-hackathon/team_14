@@ -1,7 +1,10 @@
 <template>
   <div class="container">
       <div class="" v-for="(movie, index ) in movieList" :key="index">
-          <card :title="movie.title" :genres="movie.genres"></card>
+          <card :title="movie.title" 
+            :genres="movie.genres"
+            :imgSrc="movie.imgSrc">
+        </card>
       </div>
   </div>
 </template>

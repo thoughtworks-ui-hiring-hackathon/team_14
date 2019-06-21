@@ -14,12 +14,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import {getLatestMovies, 
-  getPopularMovies, 
-  getTrendingMovies, 
-  getMovieGenres
+import {getLatestMovies,
+  getPopularMovies,
+  getTrendingMovies,
+  getMovieGenres,
 } from '@/service/baseApi';
 import MovieShowcase from '@/components/movieShowcase/movieShowcase.vue';
+import { IMG_URL } from '@/service/constants';
 
 @Component({
   components: {
@@ -44,18 +45,7 @@ export default class Home extends Vue {
         this.modifyMovies(this.latestMovies);
         this.modifyMovies(this.popularMovies);
         this.modifyMovies(this.trendingMovies);
-        // this.modifyTrendingMovies();
-        // this.modifyPopularMovies();
       });
-
-    // getLatestMovies()
-    //   .then((res) => this.latestMovies = res.results);
-
-    // getTrendingMovies()
-    //   .then((res) => this.trendingMovies = res.results);
-
-    // getPopularMovies()
-    //   .then((res) => this.popularMovies = res.results);
   }
 
   public modifyMovies(list: any) {
@@ -65,6 +55,7 @@ export default class Home extends Vue {
         const genreName = this.movieGenres.find((g: any) => g.id === id).name;
         genres.push(genreName);
       });
+      x.imgSrc = `${IMG_URL}${x.poster_path}`;
       x.genres = genres.join(',');
     });
   }
@@ -73,6 +64,7 @@ export default class Home extends Vue {
 
 <style scoped lang="scss">
     .section {
+      display: flex;
         margin: 2rem 0;
     }
 </style>
