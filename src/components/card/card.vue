@@ -11,7 +11,7 @@
         </div>
        </div> 
       <div class="col-md-12 movie-category">
-          <span>Action Adventure</span>
+          <span>{{ genres }}</span>
       </div>
 
     </div>
@@ -29,6 +29,9 @@ export default class Card extends Vue {
 
   @Prop({ default: '' })
   public title!: string;
+
+  @Prop({ default: '' })
+  public genres!: string;
 
 
 

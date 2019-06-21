@@ -20,3 +20,9 @@ export function getPopularMovies() {
     return fetch(url)
         .then((resposne) => resposne.json().then((res) =>  res));
 }
+
+export function getMovieGenres() {
+    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
+    return fetch(url)
+        .then((resposne) => resposne.json().then((res) =>  res));
+}
