@@ -1,10 +1,6 @@
 <template>
     <div class="container">
-        <!-- <div class="row">
-            <div class="col-md-12">
-                <h3 class="header">{{title}}</h3>
-            </div>
-        </div> -->
+        <h3 class="header">{{ title }}</h3>
         <carousel :movieList="movieList"></carousel>
     </div>
 </template>
