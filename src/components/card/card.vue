@@ -1,5 +1,5 @@
 <template>
-  <div class="movie">
+  <div class="movie" @click="showMovieDetails">
     <div class="movie-img">
       <img :src="imgSrc">
     </div>
@@ -22,6 +22,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import EventBus from '../../eventBus';
 
 @Component({})
 export default class Card extends Vue {
@@ -34,6 +35,17 @@ export default class Card extends Vue {
 
   @Prop({ default: '' })
   public genres!: string;
+
+  @Prop({ default: 0 })
+  public movieID!: number;
+
+  public showMovieDetails(){
+    EventBus.$emit('show-movie-detail',this.movieID);
+  }
+
+  public destroy(){
+    EventBus.$off('show-movie-detail');
+  }
 
 }
 </script>
