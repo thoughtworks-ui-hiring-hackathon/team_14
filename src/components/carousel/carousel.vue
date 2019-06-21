@@ -3,7 +3,7 @@
       <div class="" v-for="(movie, index ) in movieList" :key="index">
           <card :title="movie.title" 
             :genres="movie.genres"
-            :imgSrc="movie.imgSrc">
+            :imgSrc="movie.imgSrc" :movieID="movie.id">
         </card>
       </div>
   </div>
@@ -21,6 +21,7 @@ import Card from '@/components/card/card.vue';
 export default class Carousel extends Vue {
     @Prop({ default: [] })
     public movieList!: any[];
+
 }
 </script>
 

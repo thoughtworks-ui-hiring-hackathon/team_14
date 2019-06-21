@@ -21,6 +21,7 @@ import {getLatestMovies,
 } from '@/service/baseApi';
 import MovieShowcase from '@/components/movieShowcase/movieShowcase.vue';
 import { IMG_URL } from '@/service/constants';
+import EventBus from '@/eventBus';
 
 @Component({
   components: {
@@ -35,7 +36,10 @@ export default class Home extends Vue {
   public movieGenres: any[] = [];
 
   public mounted() {
-
+    EventBus.$on('show-movie-detail',(movieID : number)=>{
+          alert(movieID);
+    });
+    
     Promise.all([getLatestMovies(), getTrendingMovies(), getPopularMovies(), getMovieGenres()])
       .then((res) => {
         this.latestMovies = res[0].results;
@@ -59,6 +63,8 @@ export default class Home extends Vue {
       x.genres = genres.join(',');
     });
   }
+
+  
 }
 </script>
 
