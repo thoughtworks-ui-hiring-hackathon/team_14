@@ -4,7 +4,7 @@
     <div class="movie-details">
       
       <div class="col-md-6">
-          <label for="">Movie Name</label>
+          <label for="">{{ title }}</label>
       </div>
 
       <div class="col-md-6">
@@ -26,6 +26,9 @@ export default class Card extends Vue {
 
   @Prop({ default: '' })
   public imgSrc!: string;
+
+  @Prop({ default: '' })
+  public title!: string;
 
 
 
