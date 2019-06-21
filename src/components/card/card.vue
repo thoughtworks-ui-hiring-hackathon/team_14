@@ -2,14 +2,14 @@
   <div class="movie">
     <div class="movie-img"></div>
     <div class="movie-details">
-      
-      <div class="col-md-6">
-          <label for="">{{ title }}</label>
-      </div>
-
-      <div class="col-md-6">
-          
-      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <label for="">{{ title }}</label>
+        </div>
+        <div class="col-md-6">
+            <font-awesome-icon icon="heart" />
+        </div>
+       </div> 
       <div class="col-md-12 movie-category">
           <span>Action Adventure</span>
       </div>
@@ -41,6 +41,7 @@ export default class Card extends Vue {
   height: 300px;
   border: 1px solid lightgray;
   margin-top:100px;
+  float: left;
 }
 .movie-img{
   height: 50%;
