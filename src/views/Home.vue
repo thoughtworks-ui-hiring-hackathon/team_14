@@ -9,6 +9,7 @@
     <section class="section">
       <movie-showcase title="Most Watched" :movieList="popularMovies"></movie-showcase>
     </section>
+    <modal v-if="showModal" :movieID="movieID"></modal>
   </div>
 </template>
 
@@ -22,10 +23,12 @@ import {getLatestMovies,
 import MovieShowcase from '@/components/movieShowcase/movieShowcase.vue';
 import { IMG_URL } from '@/service/constants';
 import EventBus from '@/eventBus';
+import Modal from '@/components/modal/modal.vue';
 
 @Component({
   components: {
     'movie-showcase': MovieShowcase,
+    Modal,
   },
 })
 export default class Home extends Vue {
@@ -34,10 +37,13 @@ export default class Home extends Vue {
   public trendingMovies: any = [];
   public popularMovies: any = [];
   public movieGenres: any[] = [];
+  public showModal: boolean = false;
+  public movieID: number = -1;
 
   public mounted() {
     EventBus.$on('show-movie-detail',(movieID : number)=>{
-          alert(movieID);
+          this.movieID = movieID;
+          this.showModal = true;
     });
     
     Promise.all([getLatestMovies(), getTrendingMovies(), getPopularMovies(), getMovieGenres()])

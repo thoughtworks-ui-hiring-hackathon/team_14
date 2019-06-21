@@ -1,7 +1,7 @@
 <template>
   <div class="movie" @click="showMovieDetails">
     <div class="movie-img">
-      <img :src="imgSrc">
+      <img :src="imgSrc" @click="$bvModal.show('bv-modal-example')">
     </div>
     <div class="movie-details">
       <div class="row">

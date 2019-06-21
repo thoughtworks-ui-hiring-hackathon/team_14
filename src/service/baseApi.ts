@@ -28,8 +28,7 @@ export function getMovieGenres() {
 }
 
 export function getMovieDetails(movieId: number) {
-    const url = `https://api.themoviedb.org/3/movie/${ movieId }?
-        api_key=${ API_KEY }&language=en-US&append_to_response=credits`;
+    const url = `https://api.themoviedb.org/3/movie/${ movieId }?api_key=${ API_KEY }&language=en-US&append_to_response=credits`;
     return fetch(url)
         .then((response) => response.json().then((res) => res));
 }
