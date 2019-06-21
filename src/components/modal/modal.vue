@@ -1,6 +1,8 @@
 <template>
     <div>
-        <b-modal v-model="modalShow">Hello From Modal!</b-modal>
+        <b-modal v-model="modalShow" :title="movieDetails.original_title">
+            <div>{{ movieDetails.overview }}</div>
+        </b-modal>
         </div>
 </template>
 
@@ -14,13 +16,15 @@ export default class Modal extends Vue {
     @Prop({ default: 0 })
     public movieID!: number;
 
+    public movieDetails: any = {};
+
     public modalShow: boolean = false;
 
     public mounted() {
         this.modalShow= true;
         console.log(this.movieID);   
         getMovieDetails(this.movieID)
-            .then((res: any) => console.log(res));
+            .then((res: any) => this.movieDetails = res);
     }
 }
 </script>
