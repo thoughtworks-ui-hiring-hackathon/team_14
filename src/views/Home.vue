@@ -69,8 +69,6 @@ export default class Home extends Vue {
       x.genres = genres.join(',');
     });
   }
-
-  
 }
 </script>
 
