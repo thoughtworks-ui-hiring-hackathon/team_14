@@ -1,18 +1,21 @@
 <template>
   <div class="home">
-    
+    <card></card>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import {getLatestMovies, getPopularMovies, getTrendingMovies} from '@/service/baseApi';
+import Card from '@/components/card/card.vue';
 
 @Component({
-  components: {}
+  components: {
+    Card,
+  },
 })
 export default class Home extends Vue {
-  
+
   public latestMovies: any = [];
   public treandingMovies: any = [];
   public popularMovies: any = [];
