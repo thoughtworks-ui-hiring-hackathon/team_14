@@ -9,7 +9,7 @@
             <label for="">{{ title }}</label>
         </div>
         <div class="col-md-6">
-            <font-awesome-icon icon="heart" />
+            <!-- <font-awesome-icon icon="heart" /> -->
         </div>
        </div> 
       <div class="col-md-12 movie-category">
